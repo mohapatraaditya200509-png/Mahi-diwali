@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <title>A Diwali Surprise for Mahi ❤️</title>
+  <meta name="description" content="Some moments are made special... by someone special. A cinematic Diwali surprise made with love by Aditya.">
+  <meta name="theme-color" content="#05060f">
+  <meta name="color-scheme" content="dark">
+  <meta property="og:title" content="A Diwali Surprise for Mahi ❤️">
+  <meta property="og:description" content="Some moments are made special... by someone special.">
+  <meta property="og:type" content="website">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2305060f'/%3E%3Cpath d='M32 10c3 5 7 8 7 13a7 7 0 0 1-14 0c0-3 2-5 3-7 1 2 2 3 4 4-1-4 0-7 0-10z' fill='%23ffcf6b'/%3E%3Cpath d='M14 40c0-1 1-2 3-2h30c2 0 3 1 3 2 0 7-8 12-18 12s-18-5-18-12z' fill='%23c9743a'/%3E%3C/svg%3E">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Global cinematic canvas: stars, golden motes, fireworks, petals, particle name -->
+  <canvas id="fx" aria-hidden="true"></canvas>
+  <div class="vignette" aria-hidden="true"></div>
+  <div class="sweep" id="sweep" aria-hidden="true"></div>
+
+  <!-- Minimal controls -->
+  <div class="controls">
+    <button class="icon-btn" id="muteBtn" type="button" aria-label="Mute music" title="Mute / unmute music">
+      <svg class="ic ic-on" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5H4z" fill="currentColor"/>
+        <path d="M15.2 8.7a4.6 4.6 0 0 1 0 6.6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+        <path d="M17.6 6.3a8 8 0 0 1 0 11.4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+      <svg class="ic ic-off" viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M4 9.5v5h3.2L12 18.6V5.4L7.2 9.5H4z" fill="currentColor"/>
+        <path d="M15.4 9.6l5 4.8M20.4 9.6l-5 4.8" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>
+      </svg>
+    </button>
+    <button class="icon-btn is-hidden" id="skipBtn" type="button" aria-label="Skip to the end" title="Skip">
+      <svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true">
+        <path d="M6 6.5v11l8-5.5-8-5.5zM15.5 6.5v11" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+    </button>
+  </div>
+
+  <main id="stage">
+
+    <!-- ============ SCENE 1 · OPENING ============ -->
+    <section class="scene scene--intro is-active" id="s-intro" aria-label="Opening">
+      <div class="scene-inner">
+        <div class="diya diya--hero" aria-hidden="true">
+          <div class="diya-halo"></div>
+          <svg viewBox="0 0 200 150" class="diya-svg">
+            <defs>
+              <radialGradient id="flameOuter" cx="50%" cy="70%" r="60%">
+                <stop offset="0%" stop-color="#ffd97a"/>
+                <stop offset="45%" stop-color="#ff9b3d"/>
+                <stop offset="100%" stop-color="#ff6a2a" stop-opacity="0.05"/>
+              </radialGradient>
+              <linearGradient id="clay" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stop-color="#e09057"/>
+                <stop offset="55%" stop-color="#b9673a"/>
+                <stop offset="100%" stop-color="#6d3a24"/>
+              </linearGradient>
+            </defs>
+            <g class="flame-group">
+              <ellipse class="flame-glow" cx="100" cy="66" rx="34" ry="40" fill="url(#flameOuter)" opacity=".55"/>
+              <path class="flame flame--outer" d="M100 26c9 14 20 23 20 37a20 20 0 0 1-40 0c0-9 6-15 10-21 3 6 6 9 10 12-3-11 0-20 0-28z" fill="#ff9b3d"/>
+              <path class="flame flame--inner" d="M100 47c4 7 9 11 9 18a9 9 0 0 1-18 0c0-5 3-8 5-11 2 3 3 5 4 6-1-5 0-9 0-13z" fill="#fff3c9"/>
+            </g>
+            <path d="M34 96c0-4 4-7 10-7h112c6 0 10 3 10 7 0 22-26 37-66 37S34 118 34 96z" fill="url(#clay)"/>
+            <path d="M40 97c8-4 26-6 60-6s52 2 60 6c-4 5-26 8-60 8s-56-3-60-8z" fill="#f0b077" opacity=".85"/>
+            <ellipse cx="100" cy="99" rx="52" ry="7" fill="#5e2f1d" opacity=".55"/>
+            <path class="wick-flame-base" d="M97 92h6v9h-6z" fill="#3a2013"/>
+            <path d="M60 126c10 6 26 9 40 9s30-3 40-9" fill="none" stroke="#4d2718" stroke-width="3" opacity=".5" stroke-linecap="round"/>
+          </svg>
+        </div>
+
+        <p class="kicker" id="introKicker">A Diwali surprise for</p>
+        <h1 class="display title-gold intro-name" id="introName">MAHI <span class="heart-mark">❤️</span></h1>
+
+        <div class="intro-lines" id="introLines">
+          <p class="line line-1">Some moments are made special&hellip;</p>
+          <p class="line line-2">by someone special.</p>
+        </div>
+
+        <button class="btn" id="startBtn" type="button">
+          <span class="btn-label">Start Experience</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ============ SCENE 2 · DIWALI MAGIC ============ -->
+    <section class="scene scene--diwali" id="s-diwali" aria-label="Diwali celebration">
+      <div class="scene-inner">
+        <p class="line festive-line" id="diwaliLine">And tonight, the sky celebrates with us&hellip;</p>
+        <div class="diya-row" aria-hidden="true" id="diyaRow">
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+          <span class="diya-mini"><i class="mini-flame"></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SCENE 3 · NAME REVEAL (canvas particles form MAHI) ============ -->
+    <section class="scene scene--name" id="s-name" aria-label="Name reveal">
+      <div class="scene-inner">
+        <div class="name-space" aria-hidden="true"></div>
+        <p class="line name-sub" id="nameSub">You make ordinary moments extraordinary. <span class="heart-mark">❤️</span></p>
+      </div>
+    </section>
+
+    <!-- ============ SCENE 4 · HEART ============ -->
+    <section class="scene scene--heart" id="s-heart" aria-label="Heart">
+      <div class="scene-inner">
+        <div class="heart-wrap" aria-hidden="true">
+          <span class="heart-pulse"></span>
+          <svg class="heart-svg" viewBox="0 0 100 92">
+            <defs>
+              <radialGradient id="heartGrad" cx="42%" cy="34%" r="75%">
+                <stop offset="0%" stop-color="#ffc2cf"/>
+                <stop offset="38%" stop-color="#f76d8e"/>
+                <stop offset="78%" stop-color="#d63a63"/>
+                <stop offset="100%" stop-color="#8e1e3f"/>
+              </radialGradient>
+            </defs>
+            <path d="M50 88C22 68 4 52 4 30 4 14 16 4 30 4c9 0 16 5 20 11C54 9 61 4 70 4c14 0 26 10 26 26 0 22-18 38-46 58z" fill="url(#heartGrad)"/>
+            <path d="M50 88C22 68 4 52 4 30 4 14 16 4 30 4c9 0 16 5 20 11" fill="none" stroke="#ffe1e8" stroke-width="1.4" opacity=".55"/>
+          </svg>
+        </div>
+        <p class="line heart-line" id="heartLine">Distance doesn&rsquo;t matter when someone lives in your heart.</p>
+      </div>
+    </section>
+
+    <!-- ============ SCENE 5 · FINAL MESSAGE ============ -->
+    <section class="scene scene--final" id="s-final" aria-label="Final message">
+      <div class="scene-inner">
+        <div class="final-card">
+          <p class="f-line f-1 display gold">HAPPY DIWALI MAHI <span class="heart-mark">❤️</span></p>
+          <p class="f-line f-2 display">I LOVE YOU</p>
+          <p class="f-line f-3">Forever grateful to have you in my life.</p>
+          <p class="f-line f-4">May your life always shine brighter than a thousand diyas.</p>
+          <p class="f-line f-5 sign">With love,<br><span class="display gold">Aditya ❤️</span></p>
+        </div>
+
+        <div class="final-actions" id="finalActions">
+          <button class="btn btn--ghost" id="replayBtn" type="button">
+            <span class="btn-label">Replay</span>
+          </button>
+        </div>
+      </div>
+      <div class="diya-row diya-row--final" aria-hidden="true">
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+        <span class="diya-mini"><i class="mini-flame"></i></span>
+      </div>
+    </section>
+
+  </main>
+
+  <noscript>
+    <div class="noscript">This surprise needs JavaScript to play. Please open it again with JavaScript enabled. ❤️</div>
+  </noscript>
+
+  <script src="script.js"></script>
+</body>
+</html>
